@@ -1,0 +1,121 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1a1a1a; /* Fondo oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal centrado */
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: url('WhatsApp\ Image\ 2024-11-05\ at\ 02.54.27.jpeg') no-repeat center center; /* Imagen de fondo en el contenedor */
+    background-size: cover; /* Asegúrate de que la imagen cubra todo el contenedor */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Borde blanco claro */
+    text-align: center;
+    position: relative;
+    color: #fff; /* Color del texto en el contenedor */
+}
+
+/* Encabezado del perfil */
+.profile-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Mantener la imagen de perfil redonda */
+    border: 3px solid #fff; /* Borde blanco */
+}
+
+/* Coloca el botón de menú en la esquina superior derecha */
+.profile-menu-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #fff; /* Color del botón de menú */
+    cursor: pointer;
+    position: absolute;
+    right: 0; /* Mover al lado derecho */
+    top: 0;   /* Alineado al nivel superior */
+}
+
+.profile-info h2 {
+    margin: 10px 0 5px;
+    color: #fff; /* Color blanco */
+}
+
+.profile-info p {
+    margin: 0;
+    color: #ccc; /* Texto gris claro */
+}
+
+/* Enlaces */
+.links {
+    margin: 20px 0;
+}
+
+.link-btn {
+    display: block;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: rgba(159, 159, 159, 0.8); /* Botones gris claros con un poco de transparencia */
+    text-decoration: none;
+    color: #000;
+    border-radius: 5px;
+    position: relative;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.menu-dots {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+/* Íconos sociales */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #fff; /* Color de íconos sociales */
+    font-size: 24px;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+/* Menú de compartir oculto */
+.share-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    right: 10px;
+    z-index: 1;
+}
