@@ -4,12 +4,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const dots = document.querySelectorAll('.menu-dots');
     const linkMenus = document.querySelectorAll('.link-menu');
 
-    // Muestra/oculta el menú de compartir al hacer clic en el botón de menú de perfil
-    profileMenuBtn.addEventListener('click', function() {
+    // Muestra/oculta el menú de compartir del perfil
+    profileMenuBtn.addEventListener('click', function(event) {
+        event.stopPropagation(); // Evita que el clic cierre el menú inmediatamente
         shareMenu.style.display = shareMenu.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Cierra el menú si se hace clic fuera de él
+    // Cierra el menú de compartir si se hace clic fuera de él
     window.addEventListener('click', function(event) {
         if (!profileMenuBtn.contains(event.target) && !shareMenu.contains(event.target)) {
             shareMenu.style.display = 'none';

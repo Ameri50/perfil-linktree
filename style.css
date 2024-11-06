@@ -18,18 +18,20 @@ body {
 }
 
 /* Contenedor principal centrado */
+/* Contenedor principal centrado */
 .container {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 50px;
     background: url('WhatsApp\ Image\ 2024-11-05\ at\ 02.54.27.jpeg') no-repeat center center; /* Imagen de fondo en el contenedor */
     background-size: cover; /* Asegúrate de que la imagen cubra todo el contenedor */
-    border: 2px solid rgba(255, 255, 255, 0.3); /* Borde blanco claro */
+    border-radius: 10px; /* Redondeo reducido para aspecto rectangular */
     text-align: center;
-    position: relative;
     color: #fff; /* Color del texto en el contenedor */
+    overflow: hidden; /* Para evitar que el contenido salga del contenedor */
 }
+
 
 /* Encabezado del perfil */
 .profile-container {
@@ -47,16 +49,16 @@ body {
     border: 3px solid #fff; /* Borde blanco */
 }
 
-/* Coloca el botón de menú en la esquina superior derecha */
+/* Botón de menú del perfil */
 .profile-menu-btn {
     background: none;
     border: none;
     font-size: 20px;
-    color: #fff; /* Color del botón de menú */
+    color: #fff;
     cursor: pointer;
     position: absolute;
-    right: 0; /* Mover al lado derecho */
-    top: 0;   /* Alineado al nivel superior */
+    right: 0;
+    top: 0;
 }
 
 .profile-info h2 {
@@ -69,30 +71,36 @@ body {
     color: #ccc; /* Texto gris claro */
 }
 
-/* Enlaces */
+/* Estilos de los enlaces */
 .links {
     margin: 20px 0;
 }
 
 .link-btn {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px;
     margin: 10px 0;
-    background-color: rgba(159, 159, 159, 0.8); /* Botones gris claros con un poco de transparencia */
+    background-color: rgba(159, 159, 159, 0.9);
     text-decoration: none;
     color: #000;
-    border-radius: 5px;
-    position: relative;
+    border-radius: 12px;
     font-weight: bold;
     font-size: 16px;
+    text-align: left;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
 }
 
 .menu-dots {
-    position: absolute;
-    right: 15px;
-    top: 15px;
+    font-size: 20px;
+    color: #000;
+    margin-left: auto; /* Empuja el ícono hacia la derecha */
+    align-self: center; /* Asegura que esté centrado verticalmente */
     cursor: pointer;
 }
+
 
 /* Íconos sociales */
 .social-icons {
@@ -110,7 +118,7 @@ body {
 }
 
 /* Menú de compartir oculto */
-.share-menu {
+.share-menu, .link-menu {
     display: none;
     position: absolute;
     background-color: white;
@@ -118,4 +126,57 @@ body {
     padding: 10px;
     right: 10px;
     z-index: 1;
+    color: black;
+    border-radius: 5px;
+}
+
+.share-menu a, .link-menu a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+}
+
+.share-menu a:hover, .link-menu a:hover {
+    background-color: #ddd;
+}
+
+/* Preferencias de cookies (opcional) */
+.cookie-preferences {
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        border: none;
+        width: 90%;
+    }
+
+    .profile-img img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-info h2 {
+        font-size: 1.125rem;
+    }
+
+    .profile-info p {
+        font-size: 0.875rem;
+    }
+
+    .link-btn {
+        padding: 12px;
+        font-size: 0.875rem;
+    }
+
+    .social-icons a {
+        font-size: 1.25rem;
+    }
 }
