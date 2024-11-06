@@ -6,30 +6,46 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Muestra/oculta el menú de compartir del perfil
     profileMenuBtn.addEventListener('click', function(event) {
-        event.stopPropagation(); // Evita que el clic cierre el menú inmediatamente
-        shareMenu.style.display = shareMenu.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Cierra el menú de compartir si se hace clic fuera de él
-    window.addEventListener('click', function(event) {
-        if (!profileMenuBtn.contains(event.target) && !shareMenu.contains(event.target)) {
-            shareMenu.style.display = 'none';
-        }
+        event.stopPropagation();
+        toggleMenu(shareMenu);
     });
 
     // Muestra/oculta los menús de los enlaces al hacer clic en los puntos
     dots.forEach((dot, index) => {
         dot.addEventListener('click', function(event) {
-            event.stopPropagation(); // Evita que el clic cierre el menú inmediatamente
+            event.stopPropagation();
             const menu = linkMenus[index];
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            
+            // Oculta cualquier otro menú abierto antes de mostrar el actual
+            linkMenus.forEach(m => {
+                if (m !== menu) hideMenu(m);
+            });
+            
+            toggleMenu(menu);
         });
     });
 
-    // Cierra los menús de los enlaces si se hace clic fuera
+    // Cierra los menús si se hace clic fuera de ellos
     window.addEventListener('click', function(event) {
+        if (!profileMenuBtn.contains(event.target) && !shareMenu.contains(event.target)) {
+            hideMenu(shareMenu);
+        }
         linkMenus.forEach(menu => {
-            menu.style.display = 'none';
+            if (!menu.contains(event.target)) {
+                hideMenu(menu);
+            }
         });
     });
+
+    // Función para alternar el menú con efecto de opacidad
+    function toggleMenu(menu) {
+        menu.classList.toggle('menu-visible');
+        menu.style.display = menu.classList.contains('menu-visible') ? 'block' : 'none';
+    }
+
+    // Función para ocultar el menú con transición de opacidad
+    function hideMenu(menu) {
+        menu.classList.remove('menu-visible');
+        menu.style.display = 'none';
+    }
 });
